@@ -47,7 +47,10 @@ mod finding {
     mod traits {
         #[test]
         fn std_fmt_display() {
-            assert_eq!(crate::finding::finding().into(), "path:42 message");
+            assert_eq!(
+                crate::finding::finding().to_string(),
+                "path:42 message"
+            );
         }
     }
 }
