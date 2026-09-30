@@ -24,19 +24,31 @@ mod finding {
         coding_conventions::Finding::new("path", 42, "message")
     }
 
-    #[test]
-    fn file() {
-        assert_eq!(finding().file(), &std::path::PathBuf::from("path"));
+    mod getters {
+        #[test]
+        fn file() {
+            assert_eq!(
+                crate::finding::finding().file(),
+                &std::path::PathBuf::from("path")
+            );
+        }
+
+        #[test]
+        fn line() {
+            assert_eq!(crate::finding::finding().line(), 42);
+        }
+
+        #[test]
+        fn message() {
+            assert_eq!(crate::finding::finding().message(), "message");
+        }
     }
 
-    #[test]
-    fn line() {
-        assert_eq!(finding().line(), 42);
-    }
-
-    #[test]
-    fn message() {
-        assert_eq!(finding().message(), "message");
+    mod traits {
+        #[test]
+        fn std_fmt_display() {
+            assert_eq!(crate::finding::finding().into(), "path:42 message");
+        }
     }
 }
 
