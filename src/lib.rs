@@ -19,4 +19,8 @@
 
 //! Check the coding conventions of a repository with neutral rules.
 
+mod structs;
+
+pub use structs::Finding;
+
 /******************************************************************************/
