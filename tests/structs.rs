@@ -17,11 +17,11 @@
 |                                                                              |
 \******************************************************************************/
 
-mod finding {
-    use coding_conventions::Finding;
+//! Tests for the struct collection.
 
-    fn finding() -> Finding {
-        Finding::new("path", 42, "message")
+mod finding {
+    fn finding() -> coding_conventions::Finding {
+        coding_conventions::Finding::new("path", 42, "message")
     }
 
     #[test]
