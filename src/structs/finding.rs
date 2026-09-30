@@ -59,7 +59,7 @@ impl std::fmt::Display for Finding {
         &self,
         f: &mut std::fmt::Formatter<'_>,
     ) -> Result<(), std::fmt::Error> {
-        write!(f, "{}:{}\t{}", self.file, self.line, self.message)
+        write!(f, "{}:{}\t{}", self.file.displey(), self.line, self.message)
     }
 }
 
