@@ -25,7 +25,26 @@ pub struct Finding {
 }
 
 impl Finding {
+    /// Retrieve the affected file.
+    #[must_use]
+    pub const fn file(&self) -> &std::path::PathBuf {
+        &self.file
+    }
+
+    /// Retrieve the affected line.
+    #[must_use]
+    pub const fn line(&self) -> usize {
+        self.line
+    }
+
+    /// Retrieve the explanation for this finding.
+    #[must_use]
+    pub const fn message(&self) -> &str {
+        self.message.as_str()
+    }
+
     /// Create a new instance.
+    #[must_use]
     pub fn new(file: &str, line: usize, message: &str) -> Self {
         Self {
             file: file.into(),
