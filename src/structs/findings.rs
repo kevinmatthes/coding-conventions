@@ -17,6 +17,22 @@
 |                                                                              |
 \******************************************************************************/
 
-//! Check the coding conventions of a repository with neutral rules.
+/// Details on a rule violation.
+pub struct Finding {
+    file: std::path::PathBuf,
+    line: usize,
+    message: String,
+}
+
+impl Finding {
+    /// Create a new instance.
+    pub fn new(file: &str, line: usize, message: &str) -> Self {
+        Self {
+            file: file.into(),
+            line,
+            message: message.into(),
+        }
+    }
+}
 
 /******************************************************************************/
