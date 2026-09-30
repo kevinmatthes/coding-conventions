@@ -17,10 +17,27 @@
 |                                                                              |
 \******************************************************************************/
 
-//! Check the coding conventions of a repository with neutral rules.
+mod finding {
+    use coding_conventions::Finding;
 
-mod structs;
+    fn finding() -> Finding {
+        Finding::new("path", 42, "message")
+    }
 
-pub use structs::Finding;
+    #[test]
+    fn file() {
+        assert_eq!(finding().file(), &std::path::PathBuf::from("path"));
+    }
+
+    #[test]
+    fn line() {
+        assert_eq!(finding().line(), 42);
+    }
+
+    #[test]
+    fn message() {
+        assert_eq!(finding().message(), "message");
+    }
+}
 
 /******************************************************************************/
